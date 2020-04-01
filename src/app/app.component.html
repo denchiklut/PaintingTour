@@ -1,6 +1,33 @@
 <div class="app">
   <app-header></app-header>
-  <app-sidenav [items]="items" (queryChange)="onChange($event)"></app-sidenav>
+
+  <app-sidenav>
+    <div class="sidenav-content">
+      <button type="button" mat-button (click)="openSnackBar()">
+        Toggle SnackBar
+      </button>
+
+      <mat-form-field class="full-width">
+        <mat-label>Search for countries</mat-label>
+        <label>
+          <input
+            matInput
+            [(ngModel)]="query"
+            (keyup)="onChange()"
+            [appInputFormat]="'uppercase'"
+            placeholder="Country name..."
+          />
+        </label>
+      </mat-form-field>
+
+      <div class="cards">
+        <mat-card *ngFor="let item of items">
+          <img class="img" [src]="url" alt="">
+          {{ item | titlecase | summary:5 }}
+        </mat-card>
+      </div>
+    </div>
+  </app-sidenav>
 
   <router-outlet></router-outlet>
 </div>
