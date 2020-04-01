@@ -1,0 +1,32 @@
+<mat-drawer-container class="container" autosize>
+  <mat-drawer #drawer class="sidenav" mode="cover">
+    <p>Auto-resizing sidenav</p>
+  </mat-drawer>
+
+  <div class="sidenav-content">
+    <button type="button" mat-button (click)="drawer.toggle()">
+      Toggle sidenav
+    </button>
+
+    <mat-form-field class="full-width">
+      <mat-label>Search for countries</mat-label>
+      <label>
+        <input
+          [(ngModel)]="query"
+          (keyup)="onChange()"
+          [appInputFormat]="'uppercase'"
+          matInput
+          placeholder="Country name..."
+        />
+      </label>
+    </mat-form-field>
+
+    <div class="cards">
+      <mat-card *ngFor="let item of items">
+        <img class="img" [src]="url" alt="">
+        {{ item | titlecase | summary:5 }}
+      </mat-card>
+    </div>
+  </div>
+
+</mat-drawer-container>

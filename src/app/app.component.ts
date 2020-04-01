@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { CountriesService } from './core/services';
+import { QueryChangedEvent } from './components/sidenav/sidenav.component';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.styl']
 })
 export class AppComponent {
-  title = 'PaintingTour';
+  title = 'Painting Tour';
+  items: string[];
+
+  constructor(countriesService: CountriesService) {
+    this.items = countriesService.getCountries();
+  }
+
+  onChange = (query: QueryChangedEvent) => console.log('query changed', query.q);
 }
