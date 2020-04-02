@@ -20,7 +20,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { InputFormatDirective } from './core/directives/input-format.directive';
 import { SummaryPipe } from './core/pipes/summary.pipe';
-
+import { MatDividerModule } from '@angular/material/divider';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,9 @@ import { SummaryPipe } from './core/pipes/summary.pipe';
     MatFormFieldModule,
     MatInputModule,
     MatSnackBarModule,
-    FormsModule
+    FormsModule,
+    MatDividerModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

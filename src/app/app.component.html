@@ -22,8 +22,23 @@
 
       <div class="cards">
         <mat-card *ngFor="let item of items">
-          <img class="img" [src]="url" alt="">
-          {{ item | titlecase | summary:5 }}
+          <img mat-card-image class="img" [src]="url" alt="">
+          <mat-card-subtitle>
+            Lorem ipsum dolor
+          </mat-card-subtitle>
+          <mat-card-content>
+            <mat-chip-list aria-label="Fish selection">
+              <mat-chip>One fish</mat-chip>
+              <mat-chip color="accent" selected>Two fish</mat-chip>
+              <mat-chip color="primary" selected>Primary fish</mat-chip>
+            </mat-chip-list>
+          </mat-card-content>
+
+          <mat-divider></mat-divider>
+          <mat-card-actions>
+            <button mat-button color="primary">Primary</button>
+            <button mat-button color="accent">Accent</button>
+          </mat-card-actions>
         </mat-card>
       </div>
     </div>
