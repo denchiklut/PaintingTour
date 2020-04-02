@@ -21,7 +21,7 @@
       <mat-card *ngFor="let item of items">
         <img mat-card-image class="img" [src]="url" alt="">
         <mat-card-subtitle>
-          Lorem ipsum dolor
+          {{ item | summary:10 }}
         </mat-card-subtitle>
         <mat-card-content>
           <mat-chip-list aria-label="Fish selection">
