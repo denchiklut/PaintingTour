@@ -1,12 +1,21 @@
-<mat-drawer-container class="container" autosize>
-  <mat-drawer #drawer class="sidenav" mode="cover">
-    <p>Auto-resizing sidenav</p>
-  </mat-drawer>
-
-  <button type="button" mat-button (click)="drawer.toggle()">
-    Toggle sidenav
+<mat-toolbar color="primary" class="toolbar">
+  <button mat-icon-button (click)="drawer.toggle()">
+    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
   </button>
+  <span>Painting Tour</span>
+</mat-toolbar>
 
-  <ng-content></ng-content>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer [mode]="'over'" class="sidenav">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#">Link 1</a>
+      <a mat-list-item href="#">Link 2</a>
+      <a mat-list-item href="#">Link 3</a>
+    </mat-nav-list>
+  </mat-sidenav>
 
-</mat-drawer-container>
+  <mat-sidenav-content>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

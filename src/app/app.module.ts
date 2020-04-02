@@ -16,17 +16,17 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
-import { HeaderComponent } from './components/header/header.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { InputFormatDirective } from './core/directives/input-format.directive';
 import { SummaryPipe } from './core/pipes/summary.pipe';
 import { MatDividerModule } from '@angular/material/divider';
-import {MatChipsModule} from '@angular/material/chips';
+import { MatChipsModule } from '@angular/material/chips';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     SidenavComponent,
     InputFormatDirective,
     SummaryPipe
@@ -46,7 +46,9 @@ import {MatChipsModule} from '@angular/material/chips';
     MatSnackBarModule,
     FormsModule,
     MatDividerModule,
-    MatChipsModule
+    MatChipsModule,
+    LayoutModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
