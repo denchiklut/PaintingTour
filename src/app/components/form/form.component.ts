@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { FormValidators } from '../../core/validators';
 
 @Component({
   selector: 'app-form',
@@ -9,7 +10,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class FormComponent {
   addressForm = this.fb.group({
     company: null,
-    firstName: [null, Validators.required],
+    firstName: ['', FormValidators.cannotContainSpace, FormValidators.shouldBeUnique],
     lastName: [null, Validators.required],
     address: [null, Validators.required],
     address2: null,
@@ -18,7 +19,7 @@ export class FormComponent {
     postalCode: [null, Validators.compose([
       Validators.required, Validators.minLength(5), Validators.maxLength(5)])
     ],
-    shipping: ['free', Validators.required]
+    shipping: ['free']
   });
 
   hasUnitNumber = false;
