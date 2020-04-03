@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-sidenav',
@@ -9,5 +7,12 @@ import { map, shareReplay } from 'rxjs/operators';
   styleUrls: ['./sidenav.component.styl']
 })
 export class SidenavComponent {
+  constructor(private snackBar: MatSnackBar) { }
 
+  openSnackBar() {
+    this.snackBar.open('message', 'action', {
+      horizontalPosition: 'right',
+      duration: 2000
+    });
+  }
 }

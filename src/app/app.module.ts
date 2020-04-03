@@ -12,6 +12,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatChipsModule } from '@angular/material/chips';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatListModule } from '@angular/material/list';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,17 +23,15 @@ import { environment } from '../environments/environment';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { InputFormatDirective } from './core/directives/input-format.directive';
 import { SummaryPipe } from './core/pipes/summary.pipe';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatChipsModule } from '@angular/material/chips';
-import { LayoutModule } from '@angular/cdk/layout';
-import { MatListModule } from '@angular/material/list';
+import { ListingComponent } from './components/listing/listing.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidenavComponent,
     InputFormatDirective,
-    SummaryPipe
+    SummaryPipe,
+    ListingComponent
   ],
   imports: [
     BrowserModule,

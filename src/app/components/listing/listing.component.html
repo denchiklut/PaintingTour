@@ -1,0 +1,33 @@
+<mat-form-field class="full-width">
+  <mat-label>Search for countries</mat-label>
+  <label>
+    <input
+      matInput
+      [(ngModel)]="query"
+      (keyup)="onChange()"
+      [appInputFormat]="'uppercase'"
+      placeholder="Country name..."
+    />
+  </label>
+</mat-form-field>
+
+<div class="cards">
+  <mat-card *ngFor="let item of items">
+    <img mat-card-image class="img" [src]="url" alt="">
+    <mat-card-subtitle>
+      {{ item | summary:10 }}
+    </mat-card-subtitle>
+    <mat-card-content>
+      <mat-chip-list aria-label="Fish selection">
+        <mat-chip>One fish</mat-chip>
+        <mat-chip color="accent" selected>Two fish</mat-chip>
+        <mat-chip color="primary" selected>Primary fish</mat-chip>
+      </mat-chip-list>
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-actions>
+      <button mat-button color="primary">Primary</button>
+      <button mat-button color="accent">Accent</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
