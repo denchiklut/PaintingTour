@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {ErrorHandler, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,8 +20,9 @@ import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 
-import { InputFormatDirective } from './core/directives/input-format.directive';
-import { SummaryPipe } from './core/pipes/summary.pipe';
+import { InputFormatDirective } from './core/directives';
+import { AppErrorHandler } from './core/errors';
+import { SummaryPipe } from './core/pipes';
 
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
@@ -64,7 +65,9 @@ import { PostComponent } from './components/post/post.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: ErrorHandler, useClass: AppErrorHandler }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
