@@ -11,3 +11,4 @@ export class PostsService extends ApiService {
     super(http, 'https://jsonplaceholder.typicode.com/posts');
   }
 }
+

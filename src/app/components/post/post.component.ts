@@ -3,6 +3,7 @@ import { PostsService } from '../../core/services';
 import { AppError } from '../../core/errors/app/app.error';
 import { BadInputError } from '../../core/errors/bad-input/bad-input.error';
 import { NotFoundError } from '../../core/errors/not-found/not-found.error';
+import {Post} from './Post';
 
 @Component({
   selector: 'app-post',
@@ -17,23 +18,21 @@ export class PostComponent implements OnInit{
   ngOnInit(): void {
     this.service
       .getAll()
-      .subscribe(
-        response => {
-          this.posts = response;
-        });
+      .subscribe(post => this.posts = post);
   }
 
   addPost(input: HTMLInputElement) {
     const post: any = { title: input.value };
+    this.posts.splice(0, 0, post);
+    input.value = '';
+
     this.service
       .create(post)
       .subscribe(
-        response => {
-          post.id = response;
-          this.posts.splice(0, 0, post);
-          input.value = '';
-        },
+        (newPost: Post) => post.id = newPost.id,
         (error: AppError) => {
+          this.posts.splice(0, 1);
+
           if (error instanceof BadInputError) {
             // this.form.setErrors(error.json());
           }
@@ -45,21 +44,20 @@ export class PostComponent implements OnInit{
   updatePost(post) {
     this.service
       .update(post, { isRed: true })
-      .subscribe(
-        response => {
-          console.log(response);
-        });
+      .subscribe( updatedPost => console.log(updatedPost));
   }
 
   deletePost(post) {
+    const index = this.posts.indexOf(post);
+    this.posts.splice(index, 1);
+
     this.service
       .delete(post.id)
       .subscribe(
-        response => {
-          const index = this.posts.indexOf(post);
-          this.posts.splice(index, 1);
-        },
+        null,
         (error: Response) => {
+          this.posts.splice(index, 0, post);
+
           if (error instanceof NotFoundError) {
             alert('this post was already deleted');
           }
