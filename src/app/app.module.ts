@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -28,6 +29,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ListingComponent } from './components/listing/listing.component';
 import { FormComponent } from './components/form/form.component';
+import { PostComponent } from './components/post/post.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { FormComponent } from './components/form/form.component';
     InputFormatDirective,
     SummaryPipe,
     ListingComponent,
-    FormComponent
+    FormComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,8 @@ import { FormComponent } from './components/form/form.component';
     MatListModule,
     MatSelectModule,
     MatRadioModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
