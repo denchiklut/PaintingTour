@@ -8,6 +8,6 @@ export class CountriesService {
   constructor() { }
 
   getCountries = () => (
-    ['Франция', 'Англия', 'Нидерланды']
+    [ { id: 0, name: 'Франция'}, { id: 1, name: 'Англия' }, { id: 2, name: 'Нидерланды'} ]
   )
 }

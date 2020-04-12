@@ -12,10 +12,14 @@
 </mat-form-field>
 
 <div class="cards">
-  <mat-card *ngFor="let item of items">
+  <mat-card
+    *ngFor="let item of items; trackBy: trackBy"
+    [routerLink]="['/countries', item.id, item.name]"
+    [queryParams]="{ order: 'newest'}"
+  >
     <img mat-card-image class="img" [src]="url" alt="">
     <mat-card-subtitle>
-      {{ item | summary:10 }}
+      {{ item.name | summary:10 }}
     </mat-card-subtitle>
     <mat-card-content>
       <mat-chip-list aria-label="Fish selection">
