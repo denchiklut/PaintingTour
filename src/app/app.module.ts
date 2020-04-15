@@ -1,10 +1,16 @@
-import {ErrorHandler, NgModule} from '@angular/core';
+// angular
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+// firebase
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+// angular material
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -20,17 +26,22 @@ import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 
+// environment
+import { environment } from '../environments/environment';
+
+// core
 import { InputFormatDirective } from './core/directives';
 import { AppErrorHandler } from './core/errors';
 import { SummaryPipe } from './core/pipes';
 
-import { environment } from '../environments/environment';
+// components
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ListingComponent } from './components/listing/listing.component';
 import { FormComponent } from './components/form/form.component';
 import { PostComponent } from './components/post/post.component';
+import { CountriesComponent } from './components/countries/countries.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +51,8 @@ import { PostComponent } from './components/post/post.component';
     SummaryPipe,
     ListingComponent,
     FormComponent,
-    PostComponent
+    PostComponent,
+    CountriesComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +75,9 @@ import { PostComponent } from './components/post/post.component';
     MatSelectModule,
     MatRadioModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
   providers: [
     { provide: ErrorHandler, useClass: AppErrorHandler }
