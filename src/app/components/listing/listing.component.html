@@ -1,22 +1,4 @@
-<div class="form">
-  <mat-form-field>
-    <mat-label>Search for countries</mat-label>
-    <label>
-      <input
-        matInput
-        [(ngModel)]="name"
-        placeholder="Enter name..."
-      />
-    </label>
-  </mat-form-field>
-
-  <app-upload-task
-    (getUrl)="onGetUrl($event)"
-    [folder]="path"
-  ></app-upload-task>
-
-  <button mat-raised-button color="primary" (click)="onAdd()" [disabled]="!isActive">Add</button>
-</div>
+<app-form></app-form>
 
 <div class="cards">
   <mat-card
