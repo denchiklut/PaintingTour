@@ -9,6 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 // firebase
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 
 // angular material
 import { MatIconModule } from '@angular/material/icon';
@@ -41,7 +43,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ListingComponent } from './components/listing/listing.component';
 import { FormComponent } from './components/form/form.component';
 import { PostComponent } from './components/post/post.component';
-import { CountriesComponent } from './components/countries/countries.component';
+import { UploadTaskComponent } from './components/upload-task/upload-task.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,7 @@ import { CountriesComponent } from './components/countries/countries.component';
     ListingComponent,
     FormComponent,
     PostComponent,
-    CountriesComponent
+    UploadTaskComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +79,9 @@ import { CountriesComponent } from './components/countries/countries.component';
     ReactiveFormsModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule
   ],
   providers: [
     { provide: ErrorHandler, useClass: AppErrorHandler }

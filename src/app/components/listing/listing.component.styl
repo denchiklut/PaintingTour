@@ -1,10 +1,14 @@
 .cards
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   grid-gap: 1rem;
 
-.full-width
-  width 100%
+.form
+  display grid
+  grid-column-gap 20px
+  grid-template-columns 1fr auto auto
+  align-items center
 
 .img
-  max-height 250px
+  object-fit cover
+  height 196px

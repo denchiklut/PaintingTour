@@ -1,36 +1,43 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CountriesService } from '../../core/services';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-listing',
   templateUrl: './listing.component.html',
   styleUrls: ['./listing.component.styl']
 })
-export class ListingComponent implements OnInit{
-  query: string;
-  items;
-  url = 'https://images.unsplash.com/photo-1499856871958-5b9627545d1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2014&q=80';
+export class ListingComponent implements OnInit {
+  items$: Observable<any>;
+  name: string;
+  url: string;
 
-  constructor(private countriesService: CountriesService, private route: ActivatedRoute) { }
+  isActive = false;
+  path = this.route.snapshot.url[0]?.path;
+
+  constructor(private db: AngularFireDatabase, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.items = this.countriesService.getCountries();
-    this.route.paramMap.subscribe(params => {
-      console.log(params.get('id'));
-      console.log(params.get('name'));
-    });
+    this.items$ = this.db.list(`/${ this.path }`).valueChanges();
+  }
 
-    this.route.queryParamMap.subscribe(params => {
-      console.log(params.get('order'));
-    });
+  onGetUrl({ url }) {
+    this.url = url;
+
+    if (this.name !== '') {
+      this.isActive = true;
+    }
+  }
+
+  onAdd() {
+    this.db.list(`/${ this.path }`).push({ name: this.name, img: this.url });
+
+    this.name = '';
+    this.url = '';
   }
 
   trackBy(index, country) {
     return country ? country.id : undefined;
-  }
-
-  onChange() {
-    console.log(this.query);
   }
 }

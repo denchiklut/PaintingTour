@@ -3,14 +3,17 @@ import { Routes, RouterModule } from '@angular/router';
 import { ListingComponent } from './components/listing/listing.component';
 import { FormComponent } from './components/form/form.component';
 import { PostComponent } from './components/post/post.component';
-import { CountriesComponent } from './components/countries/countries.component';
 
 
 const routes: Routes = [
-  { path: '', component: CountriesComponent },
-  { path: 'countries/:id/:name', component: ListingComponent },
-  { path: 'posts', component: PostComponent },
-  { path: 'form', component: FormComponent }
+  { path: '', component: ListingComponent },
+  { path: 'painters', component: ListingComponent },
+  { path: 'paintings', component: ListingComponent },
+  { path: 'countries', component: ListingComponent },
+  { path: 'museums', component: ListingComponent },
+  { path: 'artMovements', component: ListingComponent },
+  // { path: 'countries/:id/:name', component: ListingComponent },
+  // { path: 'form', component: FormComponent }
 ];
 
 @NgModule({
