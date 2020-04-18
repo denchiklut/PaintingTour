@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { FormBuilder, Validators } from '@angular/forms';
+import {FormBuilder, Validators} from '@angular/forms';
 import {AngularFireDatabase} from 'angularfire2/database';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
-  selector: 'app-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.styl']
+  selector: 'app-create-form',
+  templateUrl: './create-form.component.html',
+  styleUrls: ['./create-form.component.styl']
 })
-export class FormComponent {
+export class CreateFormComponent {
   url: string;
 
   path = this.route.snapshot.url[0]?.path;

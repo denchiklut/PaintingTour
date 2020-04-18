@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ListingComponent } from './components/listing/listing.component';
-import { FormComponent } from './components/form/form.component';
 import { PostComponent } from './components/post/post.component';
 
 

@@ -41,9 +41,9 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ListingComponent } from './components/listing/listing.component';
-import { FormComponent } from './components/form/form.component';
 import { PostComponent } from './components/post/post.component';
 import { UploadTaskComponent } from './components/upload-task/upload-task.component';
+import { CreateFormComponent } from './components/create-form/create-form.component';
 
 @NgModule({
   declarations: [
@@ -52,9 +52,9 @@ import { UploadTaskComponent } from './components/upload-task/upload-task.compon
     InputFormatDirective,
     SummaryPipe,
     ListingComponent,
-    FormComponent,
     PostComponent,
-    UploadTaskComponent
+    UploadTaskComponent,
+    CreateFormComponent
   ],
   imports: [
     BrowserModule,
