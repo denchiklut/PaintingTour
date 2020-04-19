@@ -40,10 +40,15 @@ import { SummaryPipe } from './core/pipes';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
-import { ListingComponent } from './components/listing/listing.component';
 import { PostComponent } from './components/post/post.component';
 import { UploadTaskComponent } from './components/upload-task/upload-task.component';
-import { CreateFormComponent } from './components/create-form/create-form.component';
+import { MuseumsPageComponent } from './components/pages/museums-page/museums-page.component';
+import { ArtMovementsPageComponent } from './components/pages/art-movements-page/art-movements-page.component';
+import { CountriesPageComponent } from './components/pages/countries-page/countries-page.component';
+import { CreateCountryFormComponent } from './components/forms/create-country-form/create-country-form.component';
+import { CreateArtMovementFormComponent } from './components/forms/create-art-movement-form/create-art-movement-form.component';
+import { CreateMuseumFormComponent } from './components/forms/create-museum-form/create-museum-form.component';
+import { HomePageComponent } from './components/pages/home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -51,10 +56,15 @@ import { CreateFormComponent } from './components/create-form/create-form.compon
     SidenavComponent,
     InputFormatDirective,
     SummaryPipe,
-    ListingComponent,
     PostComponent,
     UploadTaskComponent,
-    CreateFormComponent
+    MuseumsPageComponent,
+    ArtMovementsPageComponent,
+    CountriesPageComponent,
+    CreateCountryFormComponent,
+    CreateArtMovementFormComponent,
+    CreateMuseumFormComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,

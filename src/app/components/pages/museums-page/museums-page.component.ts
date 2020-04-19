@@ -4,20 +4,18 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-listing',
-  templateUrl: './listing.component.html',
-  styleUrls: ['./listing.component.styl']
+  selector: 'app-museums-page',
+  templateUrl: './museums-page.component.html',
+  styleUrls: ['./museums-page.component.styl']
 })
-export class ListingComponent implements OnInit {
+export class MuseumsPageComponent implements OnInit {
   items$: Observable<any>;
   name: string;
-
-  path = this.route.snapshot.url[0]?.path;
 
   constructor(private db: AngularFireDatabase, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.items$ = this.db.list(`/${ this.path }`).valueChanges();
+    this.items$ = this.db.list('/museums').valueChanges();
   }
 
   trackBy(index, country) {

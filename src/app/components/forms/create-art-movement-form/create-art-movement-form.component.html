@@ -1,0 +1,29 @@
+<form [formGroup]="createForm" novalidate (ngSubmit)="onAdd()">
+  <mat-card class="create-card">
+    <mat-card-content class="form-content">
+      <div class="form-row">
+        <mat-form-field>
+          <mat-label>Enter name</mat-label>
+          <input matInput placeholder="Name... " formControlName="name">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Enter color</mat-label>
+          <input matInput placeholder="Color... " formControlName="color">
+        </mat-form-field>
+
+        <app-upload-task
+          (getUrl)="onGetUrl($event)"
+          [folder]="path"
+        ></app-upload-task>
+      </div>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Description</mat-label>
+        <textarea matInput placeholder="Some extra information..." formControlName="info"></textarea>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="!createForm.valid">Add</button>
+    </mat-card-content>
+  </mat-card>
+</form>

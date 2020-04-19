@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
-import {FormBuilder, Validators} from '@angular/forms';
-import {AngularFireDatabase} from 'angularfire2/database';
-import {ActivatedRoute} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, Validators } from '@angular/forms';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
-  selector: 'app-create-form',
-  templateUrl: './create-form.component.html',
-  styleUrls: ['./create-form.component.styl']
+  selector: 'app-create-country-form',
+  templateUrl: './create-country-form.component.html',
+  styleUrls: ['./create-country-form.component.styl']
 })
-export class CreateFormComponent {
+export class CreateCountryFormComponent {
   url: string;
 
-  path = this.route.snapshot.url[0]?.path;
+  path = '/countries';
   createForm = this.fb.group({
     name: ['', Validators.required]
   });

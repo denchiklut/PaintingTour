@@ -1,18 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ListingComponent } from './components/listing/listing.component';
-import { PostComponent } from './components/post/post.component';
+
+import { HomePageComponent } from './components/pages/home-page/home-page.component';
+import { CountriesPageComponent } from './components/pages/countries-page/countries-page.component';
+import { MuseumsPageComponent } from './components/pages/museums-page/museums-page.component';
+import { ArtMovementsPageComponent } from './components/pages/art-movements-page/art-movements-page.component';
 
 
 const routes: Routes = [
-  { path: '', component: ListingComponent },
-  { path: 'painters', component: ListingComponent },
-  { path: 'paintings', component: ListingComponent },
-  { path: 'countries', component: ListingComponent },
-  { path: 'museums', component: ListingComponent },
-  { path: 'artMovements', component: ListingComponent },
-  // { path: 'countries/:id/:name', component: ListingComponent },
-  // { path: 'form', component: FormComponent }
+  { path: '', component: HomePageComponent },
+  { path: 'painters', component: HomePageComponent },
+  { path: 'paintings', component: HomePageComponent },
+  { path: 'countries', component: CountriesPageComponent },
+  { path: 'museums', component: MuseumsPageComponent },
+  { path: 'artMovements', component: ArtMovementsPageComponent }
 ];
 
 @NgModule({
