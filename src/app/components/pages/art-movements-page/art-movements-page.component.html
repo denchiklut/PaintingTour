@@ -1,17 +1,15 @@
 <app-create-art-movement-form></app-create-art-movement-form>
 
 <div class="cards">
-  <mat-card
+  <mat-card class="card"
     *ngFor="let item of items$ | async; trackBy: trackBy"
   >
-    <img mat-card-image class="img" [src]="item.img" alt="">
-    <mat-card-subtitle>
-      {{ item.name | summary:20 }}
-    </mat-card-subtitle>
+    <mat-card-content class="card-content" [ngStyle]="{ backgroundColor: '#' + item.color }">
+      <p class="card-title">{{ item.name | summary:20 }}</p>
+      <img class="img" [src]="item.img" alt="">
+    </mat-card-content>
     <mat-divider></mat-divider>
-    <mat-card-actions>
-      <button mat-button color="primary">Delete</button>
-      <button mat-button color="accent">Edit</button>
-    </mat-card-actions>
+    <button mat-button color="primary">Delete</button>
+    <button mat-button color="accent">Edit</button>
   </mat-card>
 </div>

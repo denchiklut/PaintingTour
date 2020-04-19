@@ -1,14 +1,39 @@
-.cards
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  grid-gap: 1rem;
-
 .form
   display grid
   grid-column-gap 20px
   grid-template-columns 1fr auto auto
   align-items center
 
+.cards
+  display grid
+  grid-template-columns repeat(auto-fit, minmax(280px, 1fr))
+  grid-gap 1rem
+
+.card
+  padding 0
+  overflow hidden
+
+.card-title
+  margin 0 16px
+
 .img
-  object-fit cover
-  height 196px
+  position absolute
+  right -16px
+  width 56px
+  height 56px
+
+.card-content
+  display grid
+  align-items center
+  height 48px
+  position relative
+  margin 0
+
+  &:after
+    content ''
+    background linear-gradient(to right, #00000059, transparent)
+    position absolute
+    top 0
+    left 0
+    right 0
+    bottom 0

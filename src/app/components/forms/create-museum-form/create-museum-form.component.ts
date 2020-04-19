@@ -14,7 +14,7 @@ export class CreateMuseumFormComponent {
   path = '/museums';
   createForm = this.fb.group({
     name: ['', Validators.required],
-    info: [null]
+    info: ['']
   });
 
   constructor(private fb: FormBuilder, private db: AngularFireDatabase, private route: ActivatedRoute) {}
