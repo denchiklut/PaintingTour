@@ -9,6 +9,42 @@
   grid-template-columns 1fr auto auto
   align-items center
 
+.card
+  padding 0
+  overflow hidden
+  transition: transform .6s
+  &:hover
+    transform: scale(1.05)
+    transition: transform .6s
+
 .img
+  display block
   object-fit cover
   height 196px
+  width 100%
+
+.card-header
+  display: grid;
+  z-index: 1;
+  grid-template-columns: 1fr auto auto;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  align-items: center;
+
+.card-content
+  position relative
+  box-sizing border-box
+  margin 0
+
+  &:after
+    content ''
+    background linear-gradient(to top, rgba(0, 0, 0, 0.84), transparent)
+    position absolute
+    top 0
+    left 0
+    right 0
+    bottom 0
+
+.card-title
+  margin 0 16px
