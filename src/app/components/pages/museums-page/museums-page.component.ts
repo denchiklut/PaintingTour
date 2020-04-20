@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-museums-page',
@@ -15,10 +16,20 @@ export class MuseumsPageComponent implements OnInit {
   constructor(private db: AngularFireDatabase, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.items$ = this.db.list('/museums').valueChanges();
+    this.items$ = this.db.list('/museums').snapshotChanges()
+      .pipe(
+        // @ts-ignore
+        map(changes => changes.map(c => ({ id: c.payload.key, ...c.payload.val() })))
+      );
   }
 
   trackBy(index, country) {
     return country ? country.id : undefined;
+  }
+
+  delete(museum) {
+    this.db.object('/museums/' + museum.id)
+      .remove()
+      .catch(err => console.log(err));
   }
 }
