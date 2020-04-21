@@ -1,3 +1,5 @@
+@import "../../../../assets/styles/responsive.mixin.styl"
+
 .create-card
   min-width 120px
   margin 20px auto
@@ -6,10 +8,29 @@
   display grid
   grid-column-gap 20px
   align-items center
-  grid-template-columns 1fr
-
-.form-row
-  display grid
   grid-template-columns 1fr auto auto
-  align-items center
-  grid-column-gap 20px
+  grid-template-areas: "name color file"\
+                       "info info info"\
+                       "submit submit submit"
+
+  @media $mobile
+    grid-template-columns 1fr auto auto
+    grid-template-areas: "name name name"\
+                         "color color file"\
+                         "info info info"\
+                         "submit submit submit"
+
+.input-name
+  grid-area name
+
+.input-color
+  grid-area color
+
+.input-file
+  grid-area file
+
+.input-info
+  grid-area info
+
+.submit-btn
+    grid-area submit

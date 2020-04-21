@@ -6,10 +6,19 @@
   display grid
   grid-column-gap 20px
   align-items center
-  grid-template-columns 1fr
+  grid-template-columns 1fr 1fr auto
+  grid-template-areas "name name file"\
+                      "info info info"\
+                      "submit submit submit"
 
-.form-row
-  display grid
-  grid-template-columns 1fr auto
-  align-items center
-  grid-column-gap 20px
+.input-name
+  grid-area name
+
+.input-file
+  grid-area file
+
+.input-info
+  grid-area info
+
+.submit-btn
+    grid-area submit

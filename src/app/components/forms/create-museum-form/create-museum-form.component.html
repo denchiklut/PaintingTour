@@ -1,24 +1,22 @@
 <form [formGroup]="createForm" novalidate (ngSubmit)="onAdd()">
   <mat-card class="create-card">
     <mat-card-content class="form-content">
-      <div class="form-row">
-        <mat-form-field>
+        <mat-form-field class="input-name">
           <mat-label>Enter name</mat-label>
-          <input matInput placeholder="Name... " formControlName="name">
+          <input matInput placeholder="Name... " formControlName="name" required>
         </mat-form-field>
 
-        <app-upload-task
+        <app-upload-task class="input-file"
           (getUrl)="onGetUrl($event)"
           [folder]="path"
         ></app-upload-task>
-      </div>
 
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="input-info">
         <mat-label>Description</mat-label>
-        <textarea matInput placeholder="Some extra information..." formControlName="info"></textarea>
+        <textarea matInput matTextareaAutosize placeholder="Some extra information..." formControlName="info"></textarea>
       </mat-form-field>
 
-      <button mat-raised-button color="primary" type="submit" [disabled]="!createForm.valid">Add</button>
+      <button class="submit-btn" mat-raised-button color="primary" type="submit" [disabled]="!createForm.valid">Add</button>
     </mat-card-content>
   </mat-card>
 </form>
