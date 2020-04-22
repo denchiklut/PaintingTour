@@ -15,6 +15,10 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 // environment
 import { environment } from '../environments/environment';
 
+// redux
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
+
 // core
 import { InputFormatDirective } from './core/directives';
 import { AppErrorHandler } from './core/errors';
@@ -36,6 +40,8 @@ import { CreateCountryFormComponent } from './components/forms/create-country-fo
 import { CreateArtMovementFormComponent } from './components/forms/create-art-movement-form/create-art-movement-form.component';
 import { CreateMuseumFormComponent } from './components/forms/create-museum-form/create-museum-form.component';
 import { HomePageComponent } from './components/pages/home-page/home-page.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 
 @NgModule({
   declarations: [
@@ -57,7 +63,7 @@ import { HomePageComponent } from './components/pages/home-page/home-page.compon
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     FormsModule,
     MatComponentsModule,
     ReactiveFormsModule,
@@ -65,7 +71,9 @@ import { HomePageComponent } from './components/pages/home-page/home-page.compon
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFirestoreModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    StoreModule.forRoot(reducers, { metaReducers }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [
     { provide: ErrorHandler, useClass: AppErrorHandler }
