@@ -1,4 +1,15 @@
+<mat-toolbar color="primary" class="toolbar mat-elevation-z6">
+  <button mat-icon-button (click)="drawer.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <a class="app-title" routerLink="/">Painting Tour</a>
+  <button mat-icon-button (click)="openSnackBar()">
+    <img src="https://sun9-29.userapi.com/c850324/v850324834/b20b2/Tn2_7HOufIA.jpg" alt="" class="avatar mat-elevation-z0">
+  </button>
+</mat-toolbar>
+
 <mat-sidenav-container class="sidenav-container">
+  <div class="cdk-visually-hidden cdk-focus-trap-anchor" aria-hidden="true" tabindex="0"></div>
   <mat-sidenav #drawer [mode]="'over'" class="sidenav">
     <div class="sidenav-menu mat-elevation-z0">
       <img src="https://sun9-29.userapi.com/c850324/v850324834/b20b2/Tn2_7HOufIA.jpg" alt="" class="avatar menu-avatar mat-elevation-z0">
@@ -37,18 +48,7 @@
       </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
-
   <mat-sidenav-content>
-    <mat-toolbar color="primary" class="toolbar mat-elevation-z6">
-      <button mat-icon-button (click)="drawer.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <a class="app-title" routerLink="/">Painting Tour</a>
-      <button mat-icon-button (click)="openSnackBar()">
-        <img src="https://sun9-29.userapi.com/c850324/v850324834/b20b2/Tn2_7HOufIA.jpg" alt="" class="avatar mat-elevation-z0">
-      </button>
-    </mat-toolbar>
-
     <ng-content></ng-content>
   </mat-sidenav-content>
 </mat-sidenav-container>
