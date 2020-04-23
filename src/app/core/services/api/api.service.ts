@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-import { BadInputError } from '../../errors/bad-input/bad-input.error';
-import { NotFoundError } from '../../errors/not-found/not-found.error';
-import { AppError} from '../../errors/app/app.error';
+import { BadInputError } from "../../../shared/errors/bad-input/bad-input.error";
+import { NotFoundError } from "../../../shared/errors/not-found/not-found.error";
+import { AppError } from "../../../shared/errors/app/app.error";
 
 export class ApiService {
   constructor(private http: HttpClient, private url: string) { }

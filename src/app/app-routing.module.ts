@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-import { HomePageComponent } from './components/pages/home-page/home-page.component';
-import { CountriesPageComponent } from './components/pages/countries-page/countries-page.component';
-import { MuseumsPageComponent } from './components/pages/museums-page/museums-page.component';
-import { ArtMovementsPageComponent } from './components/pages/art-movements-page/art-movements-page.component';
+import {
+  ArtMovementsPageComponent,
+  CountriesPageComponent,
+  HomePageComponent,
+  MuseumsPageComponent
+} from "./core/containers";
 
 
 const routes: Routes = [

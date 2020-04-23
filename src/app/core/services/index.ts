@@ -1,2 +1,2 @@
-export * from './countries/countries.service';
-export * from './posts/posts.service';
+export * from './countries';
+export * from './posts';
