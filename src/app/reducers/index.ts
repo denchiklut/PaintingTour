@@ -9,11 +9,11 @@ import { environment } from '../../environments/environment';
 import * as counterReducer from './counter.reducer';
 
 export interface State {
-  count: number;
+  counter: counterReducer.State;
 }
 
 export const reducers: ActionReducerMap<State> = {
-  count: counterReducer.reducer
+  counter: counterReducer.reducer
 };
 
 

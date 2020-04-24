@@ -1,14 +1,19 @@
-import { createReducer, on } from '@ngrx/store';
+import { Action, createReducer, on } from '@ngrx/store';
 import { increment, decrement, reset } from '../core/actions';
 
-export const initialState = 0;
+export interface State {
+  count: number
+}
+export const initialState = {
+  count: 0
+};
 
 const counterReducer = createReducer(initialState,
-  on(increment, state => state + 1),
-  on(decrement, state => state - 1),
-  on(reset, state => 0),
+  on(increment, state => ({ ...state, count: state.count + 1 })),
+  on(decrement, state =>({ ...state, count: state.count - 1 })),
+  on(reset, state => ({ ...state, count: 0 }))
 );
 
-export function reducer(state, action) {
+export function reducer(state: State | undefined, action: Action) {
   return counterReducer(state, action);
 }
