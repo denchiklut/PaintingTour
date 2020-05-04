@@ -3,6 +3,7 @@
 <div class="cards">
   <mat-card
     class="card"
+    @fade
     *ngFor="let item of items$ | async; trackBy: trackBy"
   >
     <mat-card-content class="card-content">

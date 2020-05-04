@@ -3,11 +3,15 @@ import { ActivatedRoute } from '@angular/router';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { fade } from "../../../shared/animations";
 
 @Component({
   selector: 'app-museums-page',
   templateUrl: './museums-page.component.html',
-  styleUrls: ['./museums-page.component.styl']
+  styleUrls: ['./museums-page.component.styl'],
+  animations: [
+    fade
+  ]
 })
 export class MuseumsPageComponent implements OnInit {
   items$: Observable<any>;
