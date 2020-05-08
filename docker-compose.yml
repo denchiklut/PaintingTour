@@ -11,4 +11,13 @@ services:
       - /app/node_modules
       - .:/app
 
-
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - 9876:9876
+    volumes:
+      - /app/node_modules
+      - .:/app
+    command: ["npm", "run", "test"]

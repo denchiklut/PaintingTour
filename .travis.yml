@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  -  docker build -t denchiklut/paintingtour -f Dockerfile.dev .
+
+script:
+  - docker run denchiklut/paintingtour npm run build
+
